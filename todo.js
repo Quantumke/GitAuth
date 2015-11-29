@@ -1,9 +1,8 @@
+Tasks = new Mongo.Collection("tasks");
 if (Meteor.isClient){
-    Template.body.helper({
-        task:[
-            {text:"Task 1"},
-            {text:"Task 2"},
-            {text:"Task 3"}
-        ]
-    })
+    Template.body.helpers({
+        tasks: function() {
+            return Tasks.find({})
+        }
+    });
 }
